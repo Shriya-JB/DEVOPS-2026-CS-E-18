@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Welcome') {
             steps {
                 echo 'Welcome to CyberAI CI/CD Pipeline!'
@@ -23,11 +24,15 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo Running tests...'
+                sh 'node -v'
+                sh 'npm -v'
+                sh 'node test.js'
             }
         }
     }
 
     post {
+
         always {
             echo 'Pipeline Finished.'
         }
