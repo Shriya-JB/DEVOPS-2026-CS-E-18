@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phish AI – URL Analyzer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <h1>Phish AI – URL Analyzer</h1>
+    <p class="subtitle">Check if a website is safe or a phishing threat</p>
+  </header>
+
+  <div class="card">
+    <label for="urlInput">Enter Website URL</label>
+    <div class="input-row">
+      <div class="input-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <input type="text" id="urlInput" placeholder="https://example.com" />
+      </div>
+      <button class="analyze-btn" id="analyzeBtn">Analyze</button>
+    </div>
+    <div class="error-msg" id="errorMsg">Please enter a URL to analyze.</div>
+
+    <hr class="divider" />
+
+    <div class="result-section" id="resultSection">
+      <p class="result-title">Result</p>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-top">
+          <div class="icon-circle" id="iconCircle">
+            <svg id="iconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1f9d55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <span class="result-label" id="resultLabel">FINE</span>
+        </div>
+        <p class="result-desc" id="resultDesc">This website appears to be safe.</p>
+      </div>
+
+      <div class="scan-details">
+        <div class="scan-details-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1f9d55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          Scan Details
+        </div>
+        <div class="detail-row"><span class="label">URL:</span><span class="value neutral" id="detailUrl">–</span></div>
+        <div class="detail-row"><span class="label">Status:</span><span class="value" id="detailStatus">–</span></div>
+        <div class="detail-row"><span class="label">Checked on:</span><span class="value neutral" id="detailDate">–</span></div>
+        <div class="detail-row"><span class="label">Risk Level:</span><span class="value" id="detailRisk">–</span></div>
+        <ul class="reasons" id="reasonsList"></ul>
+      </div>
+
+      <div class="footnote">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>Our analysis is based on simple heuristic checks run in your browser. Results may not be 100% accurate. Always stay cautious.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
