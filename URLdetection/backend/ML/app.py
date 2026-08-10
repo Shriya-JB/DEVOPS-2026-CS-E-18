@@ -6,9 +6,14 @@ import pandas as pd
 
 from feature_extractor import extract_features
 
-model = joblib.load("phishing_model.pkl")
-FEATURE_COLUMNS = joblib.load("feature_columns.pkl")
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+MODEL_DIR = BASE_DIR / "models"
+
+model = joblib.load(MODEL_DIR / "phishing_model.pkl")
+FEATURE_COLUMNS = joblib.load(MODEL_DIR / "feature_columns.pkl")
 app = FastAPI()
 
 app.add_middleware(
@@ -48,3 +53,6 @@ def analyze(req: URLRequest):
         "reasons": suspicious_flags[:6],
         "features": features,
     }
+
+
+

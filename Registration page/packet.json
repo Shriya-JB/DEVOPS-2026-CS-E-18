@@ -1,0 +1,11 @@
+{
+  "students": [
+    {
+      "name": "Apple",
+      "email": "apple@example.com",
+      "mobile": "9876543210",
+      "branch": "Computer Science",
+      "password": "12345678"
+    }
+  ]
+}
