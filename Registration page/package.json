@@ -1,0 +1,13 @@
+{
+  "name": "registration-page",
+  "version": "1.0.0",
+  "description": "Student registration page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
