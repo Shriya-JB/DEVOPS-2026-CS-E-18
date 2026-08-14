@@ -1,0 +1,19 @@
+{
+  "students": [
+    {},
+    {
+      "name": "Shriya",
+      "email": "parasharrishi@gmail.com",
+      "mobile": "1234567890",
+      "course": "CSE",
+      "gender": "Female"
+    },
+    {
+      "name": "Test User",
+      "email": "test1786689383346@example.com",
+      "mobile": "9876543210",
+      "course": "CSE",
+      "gender": "Male"
+    }
+  ]
+}

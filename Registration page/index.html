@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="registration-section">
+
+            <div class="header">
+                <h1>Student Registration</h1>
+                <p>Register your details below</p>
+            </div>
+
+            <form id="registrationForm">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        name="mobile"
+                        placeholder="Enter your mobile number"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Course</label>
+
+                    <select id="course" name="course" required>
+                        <option value="">Select Course</option>
+                        <option value="CSE">CSE</option>
+                        <option value="IT">IT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="ME">ME</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+
+                    <label>Gender</label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Male"
+                            required
+                        >
+                        Male
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Female"
+                        >
+                        Female
+                    </label>
+
+                </div>
+
+                <button type="submit" id="registerButton">
+                    Register
+                </button>
+
+            </form>
+
+            <div id="message"></div>
+
+        </section>
+
+
+        <section class="registrations-section">
+
+            <div class="registrations-header">
+
+                <div>
+                    <h2>Registered Students</h2>
+                    <p>All registrations completed so far</p>
+                </div>
+
+                <div class="registration-count">
+                    <span id="registrationCount">0</span>
+                    <small>Registrations</small>
+                </div>
+
+            </div>
+
+            <div id="registrationsList">
+
+                <div class="empty-state">
+                    No registrations yet.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
