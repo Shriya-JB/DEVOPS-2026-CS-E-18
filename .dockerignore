@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+Jenkinsfile
+
+URLdetection/datasets/
+URLdetection/ML/
+URLdetection/frontend/
+
+URLdetection/backend/ML/*.pkl

@@ -7,4 +7,6 @@ joblib
 python-multipart
 pydantic
 requests
-python-dotenv
+python-whois
+dnspython
+beautifulsoup4
