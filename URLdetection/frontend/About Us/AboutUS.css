@@ -1,0 +1,861 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    scroll-snap-type: y proximity;
+}
+
+body {
+    background: #020308;
+    color: #ffffff;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.video-container {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background: #020308;
+}
+
+.video-container video {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.03);
+}
+
+
+/* Main darkening layer */
+
+.video-dark {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.48);
+}
+
+
+/* Makes the sides darker */
+
+.video-vignette {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 15%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 75px;
+
+    padding: 0 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 100;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    background:
+        rgba(0, 0, 0, 0.15);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.logo {
+    color: #ffffff;
+
+    font-size: 1.45rem;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #5b8cff;
+}
+
+
+.nav-status {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 0.62rem;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+}
+
+
+.status-dot {
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: #5bffb0;
+
+    box-shadow:
+        0 0 10px
+        rgba(91, 255, 176, 0.8);
+}
+
+
+.scroll-text {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+}
+
+.scroll-text span {
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.story-section {
+    min-height: 125vh;
+
+    padding:
+        150px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    scroll-snap-align: start;
+
+    scroll-snap-stop: always;
+}
+
+.hero {
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+    width: min(700px, 100%);
+
+    opacity: 0;
+
+    transform:
+        translateY(80px)
+        scale(0.96);
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+}
+
+.content.active {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.hero-content {
+    width: min(900px, 100%);
+
+    opacity: 1;
+
+    transform: none;
+}
+
+
+.content-left {
+    margin-right: auto;
+}
+
+.content-right {
+    margin-left: auto;
+}
+
+.content-center {
+    width: min(1050px, 100%);
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.eyebrow {
+    margin-bottom: 25px;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    color: #6d95ff;
+
+    font-weight: 800;
+}
+
+.hero h1 {
+    font-size:
+        clamp(
+            5rem,
+            14vw,
+            12rem
+        );
+
+    line-height: 0.75;
+
+    font-weight: 900;
+
+    letter-spacing: -10px;
+}
+
+.hero h1 span {
+    color: #5b8cff;
+}
+
+.hero h2 {
+    margin-top: 55px;
+
+    font-size:
+        clamp(
+            2.4rem,
+            5vw,
+            5rem
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+}
+
+.hero p {
+    max-width: 700px;
+
+    margin-top: 35px;
+
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    font-size: 1.1rem;
+}
+
+.hero-line {
+    margin-top: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 4px;
+
+    font-weight: 800;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+}
+
+.hero-line span {
+    width: 45px;
+
+    height: 1px;
+
+    background: #5b8cff;
+}
+
+
+/* =========================================
+   SECTION META
+========================================= */
+
+.section-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255, 255, 255, 0.5);
+}
+
+.section-meta span {
+    color: #5b8cff;
+}
+
+.section-meta.center {
+    justify-content: center;
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+.content h2 {
+    margin-bottom: 40px;
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            6rem
+        );
+
+    line-height: 0.9;
+
+    letter-spacing: -4px;
+}
+
+.content h2 span {
+    display: block;
+
+    color:
+        rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.content > p {
+    margin-bottom: 25px;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    font-size: 1.10rem;
+}
+
+.content strong {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature {
+    display: grid;
+
+    grid-template-columns: 50px 1fr;
+
+    gap: 20px;
+
+    padding: 25px 0;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+.feature:last-child {
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+.feature-number {
+    color: #5b8cff;
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+}
+
+.feature h3 {
+    margin-bottom: 5px;
+
+    font-size: 1.15rem;
+}
+
+.feature p {
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    font-size: 0.88rem;
+}
+
+/* Make feature blocks that use links preserve layout and look */
+.feature a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+.feature a:hover {
+    opacity: 0.95;
+}
+
+
+/* =========================================
+   PRINCIPLES
+========================================= */
+
+.highlight-text {
+    font-size: 1.5rem !important;
+
+    color: #ffffff !important;
+
+    line-height: 1.4;
+}
+
+.principles {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 40px;
+}
+
+.principles div {
+    padding: 25px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(0, 0, 0, 0.2);
+
+    backdrop-filter: blur(10px);
+}
+
+.principles strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.principles span {
+    color:
+        rgba(255, 255, 255, 0.5);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   TECHNOLOGY
+========================================= */
+
+.tech-item {
+    display: grid;
+
+    grid-template-columns: 45px 1fr;
+
+    gap: 20px;
+
+    padding: 22px 0;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+.tech-item:last-child {
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+.tech-item > span {
+    color: #5b8cff;
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+}
+
+.tech-item h3 {
+    font-size: 1.15rem;
+
+    margin-bottom: 3px;
+}
+
+.tech-item p {
+    color:
+        rgba(255, 255, 255, 0.5);
+
+    font-size: 0.88rem;
+}
+
+
+/* =========================================
+   VISION
+========================================= */
+
+.vision {
+    min-height: 135vh;
+}
+
+.vision-text {
+    font-size: 1.5rem !important;
+
+    color: #ffffff !important;
+
+    margin-top: 60px;
+}
+
+.security-flow {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 60px;
+
+    flex-wrap: wrap;
+}
+
+.security-flow div {
+    padding: 18px;
+
+    min-width: 130px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.13);
+
+    background:
+        rgba(0, 0, 0, 0.2);
+
+    backdrop-filter: blur(10px);
+}
+
+.security-flow small {
+    display: block;
+
+    color: #5b8cff;
+
+    margin-bottom: 5px;
+}
+
+.security-flow > span {
+    color: #5b8cff;
+
+    font-size: 1.5rem;
+}
+
+
+/* =========================================
+   FUTURE
+========================================= */
+
+.future-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 40px;
+}
+
+.future-grid div {
+    padding: 20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(0, 0, 0, 0.2);
+
+    backdrop-filter: blur(8px);
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    font-size: 0.9rem;
+
+    transition: 0.3s ease;
+}
+
+.future-grid div:hover {
+    border-color: #5b8cff;
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================
+   MISSION
+========================================= */
+
+.mission {
+    min-height: 130vh;
+}
+
+.mission blockquote {
+    max-width: 850px;
+
+    margin: 60px auto 35px;
+
+    font-size:
+        clamp(
+            1.5rem,
+            3vw,
+            2.5rem
+        );
+
+    line-height: 1.35;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+}
+
+.final-logo {
+    margin-top: 100px;
+
+    font-size:
+        clamp(
+            5rem,
+            12vw,
+            10rem
+        );
+
+    font-weight: 900;
+
+    letter-spacing: -8px;
+
+    line-height: 0.8;
+}
+
+.final-logo span {
+    color: #5b8cff;
+}
+
+.final-line {
+    margin-top: 30px;
+
+    font-size: 0.65rem !important;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(255, 255, 255, 0.45) !important;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-track {
+    position: fixed;
+
+    right: 25px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 2px;
+
+    height: 160px;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    z-index: 100;
+}
+
+#progressBar {
+    width: 100%;
+
+    height: 0%;
+
+    background: #5b8cff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .nav-status {
+        display: none;
+    }
+
+    .scroll-text {
+        display: none;
+    }
+
+    .story-section {
+        padding:
+            120px 7%;
+    }
+
+    .content-right {
+        margin-left: 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -6px;
+    }
+
+    .hero h2 {
+        letter-spacing: -2px;
+    }
+
+    .content h2 {
+        letter-spacing: -2px;
+    }
+
+    .principles {
+        grid-template-columns: 1fr;
+    }
+
+    .future-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .security-flow > span {
+        display: none;
+    }
+
+    .video-vignette {
+        background:
+            rgba(0, 0, 0, 0.15);
+    }
+
+    .progress-track {
+        right: 10px;
+
+        height: 100px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 5rem;
+    }
+
+    .future-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        grid-template-columns: 35px 1fr;
+
+        gap: 10px;
+    }
+
+}
