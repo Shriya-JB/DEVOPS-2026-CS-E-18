@@ -6,11 +6,11 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY URLdetection/backend/ML/app.py /app/app.py
-COPY URLdetection/backend/ML/feature_extractor.py /app/feature_extractor.py
+COPY URLdetection/backend/app.py /app/app.py
+COPY URLdetection/backend/feature_extractor.py /app/feature_extractor.py
 
 COPY URLdetection/models /app/models
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
