@@ -11,10 +11,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 
-if (BASE_DIR / "models").exists():
-    MODEL_DIR = BASE_DIR / "models"
-else:
-    MODEL_DIR = BASE_DIR.parents[2] / "models"
+MODEL_DIR = BASE_DIR / "models"
+if not (MODEL_DIR / "phishguard_model.pkl").is_file():
+    MODEL_DIR = BASE_DIR.parent / "models"
 
 
 model = joblib.load(MODEL_DIR / "phishguard_model.pkl")
@@ -29,6 +28,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 
 class URLRequest(BaseModel):
