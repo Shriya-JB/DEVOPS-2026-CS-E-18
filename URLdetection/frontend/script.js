@@ -25,7 +25,7 @@ const reasonsList = document.getElementById('reasonsList');
 |--------------------------------------------------------------------------
 */
 
-const API_BASE_URL = window.API_BASE_URL || 'http://127.0.0.1:8000';
+const API_BASE_URL = __API_BASE_URL__;
 const API_URL = `${API_BASE_URL.replace(/\/+$/, '')}/analyze`;
 
 
